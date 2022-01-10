@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local-Storage</title>
+</head>
+
+<body>
+    <label for="op">Opacity</label>
+    <input type="range" id="op" min="0" max="1" step="0.01" />
+    <label for="border">Border</label>
+    <input type="range" id="border" min="0" max="50" />
+    <hr>
+    <img src="https://thumbor.forbes.com/thumbor/fit-in/1200x0/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5d35eacaf1176b0008974b54%2F0x0.jpg%3FcropX1%3D790%26cropX2%3D5350%26cropY1%3D784%26cropY2%3D3349"
+        alt="" id="img">
+    
+    <p></p>
+
+    <script>
+   let opacity = document.querySelector("#op");
+   let border = document.querySelector("#border");
+   let image = document.querySelectorAll("img");
+
+function LocalGetir() {
+let imgOpacity = localStorage.getItem("op");
+let imgBorder = localStorage.getItem("borderRadius");
+
+for(let i=0; i<opacity.value; i++){
+    image[i].style.opacity = imgOpacity; 
+     
+}
+
+
+   };
+
+   LocalGetir();
+
+   border.addEventListener("change", (e) =>{
+    localStorage.setItem("borderRadius", border.value);
+});
+opacity.addEventListener("change", (e) =>{
+    localStorage.setItem("op", opacity.value);
+});
+
+
+
+
+    </script>
+
+</body>
+
+</html>
